@@ -12,7 +12,7 @@ public class IntSegmentTreeNode implements SegmentTreeNode<Integer> {
     private SegmentTreeNode<Integer> leftChild;
     private SegmentTreeNode<Integer> rightChild;
 
-    public IntSegmentTreeNode(List<Integer> integers, int leftIndex, int rightIndex) {
+    IntSegmentTreeNode(List<Integer> integers, int leftIndex, int rightIndex) {
         this.integers = new ArrayList<>(integers);
         this.leftIndex = leftIndex;
         this.rightIndex = rightIndex;

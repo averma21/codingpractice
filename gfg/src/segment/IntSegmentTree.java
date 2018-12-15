@@ -47,6 +47,13 @@ public abstract class IntSegmentTree implements SegmentTree<Integer> {
         return thisNode;
     }
 
+    /**
+     * This implementation of this method should contain the logic for value calculation for a parent node of two nodes
+     * in the tree.
+     * @param leftChild left child of the parent node.
+     * @param rightChild right child of the parent node.
+     * @return value to insert in the parent node.
+     */
     abstract List<Integer> getParentValue(SegmentTreeNode<Integer> leftChild, SegmentTreeNode<Integer> rightChild);
 
     @Override
