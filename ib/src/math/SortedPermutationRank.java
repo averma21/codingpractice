@@ -23,6 +23,8 @@ public class SortedPermutationRank {
         return getCount(A, 0);
     }
 
+    // BIG INteger is not required since (abmodm)=((amodm)(bmodm))modm
+    // so just loop from 1 to n and multiply and take mods
     private BigInteger factorial(BigInteger x) {
         if (x.equals(BigInteger.ONE) || x.equals(BigInteger.ZERO))
             return BigInteger.ONE;
