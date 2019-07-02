@@ -9,6 +9,11 @@ public class Verifier {
             throw new RuntimeException("Unequal" + a + " " + b);
     }
 
+    public static void verifyEquals(double a, double b) {
+        if (a != b)
+            throw new RuntimeException("Unequal" + a + " " + b);
+    }
+
     public static void verifyEquals(List<Integer> A, List<Integer> B) {
         if (A.size() != B.size())
             throw new RuntimeException("Unequal" + A + " " + B);
