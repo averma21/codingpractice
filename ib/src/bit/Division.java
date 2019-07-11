@@ -22,7 +22,7 @@ public class Division {
 
         long res = 0;
         while (tmp>=abs((long)B)){
-            while (tmp2 <= tmp){
+            if (tmp2 <= tmp){
                 tmp -= tmp2;
                 res = res+c;
             }
