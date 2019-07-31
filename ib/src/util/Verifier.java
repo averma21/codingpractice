@@ -41,4 +41,17 @@ public class Verifier {
         }
     }
 
+    public static void verifyEquals(ListNode A, ListNode B) {
+        while (A != null && B != null){
+            if (A.val == B.val) {
+                A = A.next;
+                B = B.next;
+            } else {
+                throw new RuntimeException("Unequal " + A.val + ", " + B.val);
+            }
+        }
+        if (A != null || B != null)
+            throw new RuntimeException("Unequal lengths");
+    }
+
 }

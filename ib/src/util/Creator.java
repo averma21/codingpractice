@@ -13,4 +13,21 @@ public class Creator {
         return list;
     }
 
+    public static ListNode getListNode(int ... elements) {
+        ListNode head = null, list = null;
+        for (int ele : elements) {
+            ListNode node = new ListNode(ele);
+            node.next = null;
+            if (list == null)
+                list = node;
+            else {
+                list.next = node;
+                list = list.next;
+            }
+            if (head == null)
+                head = node;
+        }
+        return head;
+    }
+
 }
