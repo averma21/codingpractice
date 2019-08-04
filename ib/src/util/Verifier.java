@@ -21,6 +21,11 @@ public class Verifier {
     }
 
     public static void verifyEquals(List<Integer> A, List<Integer> B) {
+        if (A == null && B == null)
+            return;
+        if (A == null || B == null) {
+            throw new RuntimeException("Either A or b is null");
+        }
         if (A.size() != B.size())
             throw new RuntimeException("Unequal " + A + " " + B);
         for (int i = 0; i < A.size(); i++) {
