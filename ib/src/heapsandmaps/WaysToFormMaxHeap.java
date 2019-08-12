@@ -121,11 +121,13 @@ public class WaysToFormMaxHeap {
         Verifier.verifyEquals(combination(1,1), 1);
         Verifier.verifyEquals(combination(2,1), 2);
         Verifier.verifyEquals(combination(3,2), 3);
+        Verifier.verifyEquals(combination(3,0), 1);
         Verifier.verifyEquals(combination(10,3), 120);
         Verifier.verifyEquals(solve(3), 2);
         Verifier.verifyEquals(solve(4), 3);
         Verifier.verifyEquals(solve(5), 8);
         Verifier.verifyEquals(solve(6), 20);
+        Verifier.verifyEquals(solve(20), 258365767);
     }
 
 }
