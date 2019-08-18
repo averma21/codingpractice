@@ -16,7 +16,7 @@ public class Verifier {
     }
 
     public static void verifyEquals(String a, String b) {
-        if (a==null && b!= null || a!= null && b == null || !a.equals(b))
+        if (a==null && b!= null || a!= null && b == null || (a != null && !a.equals(b)))
             throw new RuntimeException("Unequal " + a + " " + b);
     }
 

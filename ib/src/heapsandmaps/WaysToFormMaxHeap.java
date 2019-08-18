@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Max Heap is a special kind of complete binary tree in which for every node the value present in that node is greater than the value present in it’s children nodes. If you want to know more about Heaps, please visit this link
+ * Max Heap is a special kind of complete binary trees in which for every node the value present in that node is greater than the value present in it’s children nodes. If you want to know more about Heaps, please visit this link
  *
  * So now the problem statement for this question is:
  *
@@ -15,7 +15,7 @@ import java.util.Map;
  *
  * In short, you have to ensure the following properties for the max heap :
  *
- * Heap has to be a complete binary tree ( A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible. )
+ * Heap has to be a complete binary trees ( A complete binary trees is a binary trees in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible. )
  * Every node is greater than all its children
  * Let us take an example of 4 distinct integers. Without loss of generality let us take 1 2 3 4 as our 4 distinct integers
  *
@@ -57,7 +57,7 @@ public class WaysToFormMaxHeap {
         return level;
     }
 
-    private static int combination(int n, int r) {
+    private static BigInteger combination(int n, int r) {
         int D1 = r > n-r ? r : n-r;
         BigInteger D2 = new BigInteger("" + (n - D1));
         BigInteger num = new BigInteger("1");
@@ -71,14 +71,14 @@ public class WaysToFormMaxHeap {
             num = num.divide(D2);
             D2 = D2.subtract(BigInteger.ONE);
         }
-        return num.intValue();
+        return num;
     }
 
-    private static Map<Integer, Integer> solution;
+    private static Map<Integer, BigInteger> solution;
 
-    private static int internalSolve(int A) {
+    private static BigInteger internalSolve(int A) {
         if (A <= 2)
-            return 1;
+            return BigInteger.ONE;
         if (solution.containsKey(A))
             return solution.get(A);
         int maxLevel = findMaxLevel(A);
@@ -99,15 +99,17 @@ public class WaysToFormMaxHeap {
             }
         }
         leftNodeCount = A - 1 - rightNodeCount;
-        int waysToChooseRightNodes = combination(A-1, rightNodeCount);
-        int ans = waysToChooseRightNodes * internalSolve(rightNodeCount) * internalSolve(leftNodeCount);
+        BigInteger waysToChooseRightNodes = combination(A-1, rightNodeCount);
+        BigInteger rightAns = internalSolve(rightNodeCount);
+        BigInteger leftAns = internalSolve(leftNodeCount);
+        BigInteger ans = waysToChooseRightNodes.multiply(rightAns).multiply(leftAns);
         solution.put(A, ans);
         return ans;
     }
 
     public static int solve(int A) {
         solution = new HashMap<>();
-        return internalSolve(A);
+        return internalSolve(A).mod(new BigInteger("1000000007")).intValue();
     }
 
     public static void main(String[] args) {
@@ -118,15 +120,17 @@ public class WaysToFormMaxHeap {
         Verifier.verifyEquals(findMaxLevel(4), 2);
         Verifier.verifyEquals(findMaxLevel(6), 2);
         Verifier.verifyEquals(findMaxLevel(15), 3);
-        Verifier.verifyEquals(combination(1,1), 1);
-        Verifier.verifyEquals(combination(2,1), 2);
-        Verifier.verifyEquals(combination(3,2), 3);
-        Verifier.verifyEquals(combination(3,0), 1);
-        Verifier.verifyEquals(combination(10,3), 120);
+        Verifier.verifyEquals(combination(1,1).intValue(), 1);
+        Verifier.verifyEquals(combination(2,1).intValue(), 2);
+        Verifier.verifyEquals(combination(3,2).intValue(), 3);
+        Verifier.verifyEquals(combination(3,0).intValue(), 1);
+        Verifier.verifyEquals(combination(10,3).intValue(), 120);
         Verifier.verifyEquals(solve(3), 2);
         Verifier.verifyEquals(solve(4), 3);
         Verifier.verifyEquals(solve(5), 8);
         Verifier.verifyEquals(solve(6), 20);
+        Verifier.verifyEquals(solve(7), 80);
+        Verifier.verifyEquals(solve(8), 210);
         Verifier.verifyEquals(solve(20), 258365767);
     }
 

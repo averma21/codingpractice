@@ -1,33 +1,33 @@
-package tree;
+package trees.self;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TreeNode {
+public class MWayTreeNode {
     int val;
-    List<TreeNode> children;
-    TreeNode parent;
+    List<MWayTreeNode> children;
+    MWayTreeNode parent;
 
-    public TreeNode(int val, TreeNode parent) {
+    public MWayTreeNode(int val, MWayTreeNode parent) {
         this.val = val;
         children = new ArrayList<>();
         this.parent = parent;
     }
 
-    TreeNode addChild(int val) {
-        TreeNode child = new TreeNode(val, this);
+    MWayTreeNode addChild(int val) {
+        MWayTreeNode child = new MWayTreeNode(val, this);
         this.children.add(child);
         return child;
     }
 
-    TreeNode addChild(TreeNode node) {
+    MWayTreeNode addChild(MWayTreeNode node) {
         this.children.add(node);
         return node;
     }
 
     void removeChild(int val) {
         int i = 0;
-        for (TreeNode child : children) {
+        for (MWayTreeNode child : children) {
             if (child.val == val) {
                 break;
             }
@@ -38,7 +38,7 @@ public class TreeNode {
 
     private StringBuilder getJSONB() {
         StringBuilder builder = new StringBuilder("{" + val + ":[");
-        for (TreeNode child : children) {
+        for (MWayTreeNode child : children) {
             builder.append(child.getJSONB()).append(",");
         }
         if (children.size() > 0)
@@ -52,7 +52,7 @@ public class TreeNode {
     }
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1, null);
+        MWayTreeNode root = new MWayTreeNode(1, null);
         root.addChild(10).addChild(100);
         root.addChild(20).addChild(200);
         System.out.println(root.getJSON());

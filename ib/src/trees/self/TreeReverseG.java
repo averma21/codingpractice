@@ -1,14 +1,14 @@
-package tree;
+package trees.self;
 
 /**
- * Assume nodes are balls connected by string. You hold one node and the tree falls down. Create the new tree.
+ * Assume nodes are balls connected by string. You hold one node and the trees falls down. Create the new trees.
  */
 public class TreeReverseG {
 
-    static TreeNode rev(TreeNode node) {
+    static MWayTreeNode rev(MWayTreeNode node) {
         if (node == null)
             return node;
-        TreeNode revTree = rev(node.parent);
+        MWayTreeNode revTree = rev(node.parent);
         if (revTree != null) {
             revTree.parent = node;
             revTree.removeChild(node.val);
@@ -19,16 +19,16 @@ public class TreeReverseG {
     }
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1, null);
+        MWayTreeNode root = new MWayTreeNode(1, null);
         root.addChild(8).addChild(9);
-        TreeNode four = root.addChild(2).addChild(3).addChild(4);
-        TreeNode seven = four.addChild(5).addChild(7);
+        MWayTreeNode four = root.addChild(2).addChild(3).addChild(4);
+        MWayTreeNode seven = four.addChild(5).addChild(7);
         four.addChild(6);
         System.out.println(root.getJSON());
         rev(seven);
         System.out.println(seven.getJSON());
 
-        root = new TreeNode(1, null);
+        root = new MWayTreeNode(1, null);
         root.addChild(8).addChild(9);
         four = root.addChild(2).addChild(3).addChild(4);
         seven = four.addChild(5).addChild(7);
