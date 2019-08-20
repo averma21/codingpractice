@@ -1,6 +1,6 @@
 package trees;
 
-public class TreeNode {
+public class TreeNode implements Comparable<TreeNode> {
 
     int val;
     TreeNode left;
@@ -20,5 +20,10 @@ public class TreeNode {
     TreeNode addRight(int val) {
         this.right = new TreeNode(val);
         return this.right;
+    }
+
+    @Override
+    public int compareTo(TreeNode treeNode) {
+        return val - treeNode.val;
     }
 }

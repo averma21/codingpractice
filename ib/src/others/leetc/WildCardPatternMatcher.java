@@ -1,9 +1,6 @@
-package leetc;
+package others.leetc;
 
 import util.Verifier;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.
