@@ -10,6 +10,12 @@ public class Verifier {
             throw new RuntimeException("Unequal " + a + " " + b);
     }
 
+    public static void verifyEquals(Boolean a, Boolean b) {
+        if (a != null && !a.equals(b) || b != null && !b.equals(a))
+            throw new RuntimeException("Unequal " + a + " " + b);
+    }
+
+
     public static void verifyEquals(double a, double b) {
         if (a != b)
             throw new RuntimeException("Unequal " + a + " " + b);
