@@ -2,9 +2,9 @@ package trees;
 
 public class TreeNode implements Comparable<TreeNode> {
 
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     public TreeNode(int val) {
         this.val = val;
@@ -12,12 +12,12 @@ public class TreeNode implements Comparable<TreeNode> {
         right = null;
     }
 
-    TreeNode addLeft(int val) {
+    public TreeNode addLeft(int val) {
         this.left = new TreeNode(val);
         return this.left;
     }
 
-    TreeNode addRight(int val) {
+    public TreeNode addRight(int val) {
         this.right = new TreeNode(val);
         return this.right;
     }

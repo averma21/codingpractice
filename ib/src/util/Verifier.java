@@ -21,6 +21,12 @@ public class Verifier {
             throw new RuntimeException("Unequal " + a + " " + b);
     }
 
+    public static void verifyEquals(Object a, Object b) {
+        if (!a.equals(b)) {
+            throw new RuntimeException("Unequal " + a + " " + b);
+        }
+    }
+
     public static void verifyEquals(String a, String b) {
         if (a==null && b!= null || a!= null && b == null || (a != null && !a.equals(b)))
             throw new RuntimeException("Unequal " + a + " " + b);
