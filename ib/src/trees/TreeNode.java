@@ -1,25 +1,25 @@
 package trees;
 
-public class TreeNode implements Comparable<TreeNode> {
+public class TreeNode extends TreeTemplateNode<TreeNode, Integer> implements Comparable<TreeNode> {
 
     public int val;
     public TreeNode left;
     public TreeNode right;
 
     public TreeNode(int val) {
-        this.val = val;
-        left = null;
-        right = null;
+        super(val);
     }
 
     public TreeNode addLeft(int val) {
-        this.left = new TreeNode(val);
-        return this.left;
+        TreeNode t = new TreeNode(val);
+        super.addLeft(t);
+        return t;
     }
 
     public TreeNode addRight(int val) {
-        this.right = new TreeNode(val);
-        return this.right;
+        TreeNode t = new TreeNode(val);
+        super.addRight(t);
+        return t;
     }
 
     @Override

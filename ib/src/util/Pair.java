@@ -21,6 +21,10 @@ public class Pair {
         return this.x == x && this.y == y;
     }
 
+    public boolean isSameAs(Pair pair) {
+        return isSameAs(pair.x, pair.y);
+    }
+
     public boolean isAnyValueSame(int x, int y) {
         return this.x == x || this.y == y;
     }
