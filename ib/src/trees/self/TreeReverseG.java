@@ -19,7 +19,7 @@ public class TreeReverseG {
     }
 
     public static void main(String[] args) {
-        MWayTreeNode root = new MWayTreeNode(1, null);
+        MWayTreeNode root = new MWayTreeNode<Integer>(1, null);
         root.addChild(8).addChild(9);
         MWayTreeNode four = root.addChild(2).addChild(3).addChild(4);
         MWayTreeNode seven = four.addChild(5).addChild(7);
@@ -28,7 +28,7 @@ public class TreeReverseG {
         rev(seven);
         System.out.println(seven.getJSON());
 
-        root = new MWayTreeNode(1, null);
+        root = new MWayTreeNode<Integer>(1, null);
         root.addChild(8).addChild(9);
         four = root.addChild(2).addChild(3).addChild(4);
         seven = four.addChild(5).addChild(7);

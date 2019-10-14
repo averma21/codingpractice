@@ -3,32 +3,37 @@ package trees.self;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MWayTreeNode {
-    int val;
+public class MWayTreeNode<T> {
+    T val;
     List<MWayTreeNode> children;
     MWayTreeNode parent;
 
-    public MWayTreeNode(int val, MWayTreeNode parent) {
+    public MWayTreeNode(T val, MWayTreeNode parent) {
         this.val = val;
         children = new ArrayList<>();
         this.parent = parent;
     }
 
-    MWayTreeNode addChild(int val) {
+    public T getVal() {
+        return val;
+    }
+
+    public MWayTreeNode addChild(int val) {
         MWayTreeNode child = new MWayTreeNode(val, this);
         this.children.add(child);
         return child;
     }
 
-    MWayTreeNode addChild(MWayTreeNode node) {
+    public MWayTreeNode addChild(MWayTreeNode node) {
         this.children.add(node);
+        node.parent = this;
         return node;
     }
 
-    void removeChild(int val) {
+    void removeChild(T val) {
         int i = 0;
         for (MWayTreeNode child : children) {
-            if (child.val == val) {
+            if (child.val.equals(val)) {
                 break;
             }
             i++;
