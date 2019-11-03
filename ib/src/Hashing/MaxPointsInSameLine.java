@@ -83,5 +83,9 @@ public class MaxPointsInSameLine {
         Verifier.verifyEquals(mp.maxPoints(getList(s, 0), getList(s, 1)), 6);
         s = "0 0 1 1 -1 -1";
         Verifier.verifyEquals(mp.maxPoints(getList(s, 0), getList(s, 1)), 3);
+        s = "1 1 2 2 3 3";
+        Verifier.verifyEquals(mp.maxPoints(getList(s, 0), getList(s, 1)), 3);
+        s = "1 1 3 2 5 3 4 1 2 3 1 4";
+        Verifier.verifyEquals(mp.maxPoints(getList(s, 0), getList(s, 1)), 4);
     }
 }
