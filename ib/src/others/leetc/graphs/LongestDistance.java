@@ -1,12 +1,9 @@
-package graphs;
+package others.leetc.graphs;
 
-import trees.self.MWayTreeNode;
-import trees.self.MaxInRange;
 import util.Creator;
 import util.Verifier;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;

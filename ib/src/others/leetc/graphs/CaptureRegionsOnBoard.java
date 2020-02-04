@@ -1,6 +1,4 @@
-package graphs;
-
-import util.Creator;
+package others.leetc.graphs;
 
 import java.util.ArrayList;
 import java.util.HashMap;

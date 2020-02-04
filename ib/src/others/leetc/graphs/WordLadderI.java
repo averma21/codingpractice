@@ -1,4 +1,4 @@
-package graphs;
+package others.leetc.graphs;
 
 import util.Creator;
 import util.Verifier;
