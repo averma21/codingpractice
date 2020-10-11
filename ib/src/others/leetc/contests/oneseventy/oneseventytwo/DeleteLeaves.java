@@ -1,6 +1,4 @@
-package others.leetc.contests.oneseventytwo;
-
-import sun.reflect.generics.tree.Tree;
+package others.leetc.contests.oneseventy.oneseventytwo;
 
 //https://leetcode.com/contest/weekly-contest-172/problems/delete-leaves-with-a-given-value/
 public class DeleteLeaves {

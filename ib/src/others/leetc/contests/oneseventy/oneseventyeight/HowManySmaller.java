@@ -1,13 +1,8 @@
-package others.leetc.contests.oneseventyeight;
+package others.leetc.contests.oneseventy.oneseventyeight;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class HowManySmaller {
 

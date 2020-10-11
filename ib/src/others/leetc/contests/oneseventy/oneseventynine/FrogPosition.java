@@ -1,4 +1,4 @@
-package others.leetc.contests.oneseventynine;
+package others.leetc.contests.oneseventy.oneseventynine;
 
 import util.Verifier;
 

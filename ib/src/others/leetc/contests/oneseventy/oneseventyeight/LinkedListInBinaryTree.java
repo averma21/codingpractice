@@ -1,10 +1,8 @@
-package others.leetc.contests.oneseventyeight;
+package others.leetc.contests.oneseventy.oneseventyeight;
 
-import util.Creator;
 import util.Verifier;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class LinkedListInBinaryTree {
 

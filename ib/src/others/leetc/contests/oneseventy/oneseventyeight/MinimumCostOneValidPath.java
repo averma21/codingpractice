@@ -1,10 +1,9 @@
-package others.leetc.contests.oneseventyeight;
+package others.leetc.contests.oneseventy.oneseventyeight;
 
 //https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid
 
 import util.Verifier;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;

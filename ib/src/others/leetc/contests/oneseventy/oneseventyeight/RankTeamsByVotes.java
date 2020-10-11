@@ -1,9 +1,8 @@
-package others.leetc.contests.oneseventyeight;
+package others.leetc.contests.oneseventy.oneseventyeight;
 
 import util.Verifier;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;

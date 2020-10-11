@@ -35,13 +35,34 @@ public class CountBST {
         return countInternal(n);
     }
 
+    //bottom up
+    /*public int count(int n) {
+        if (n<0)
+            return 0;
+        if (n<=1)
+            return 1;
+        int [] dp = new int[n+1];
+        dp[0] = 1; dp[1] = 1;dp[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            int total = 0;
+            for (int j = 1; j <= i; j++) {
+                int leftCount = j - 1;
+                int rightCount = i - j;
+                total += dp[leftCount]*dp[rightCount];
+            }
+            dp[i] = total;
+        }
+        return dp[n];
+    }*/
+
     public static void main(String[] args) {
         CountBST cb = new CountBST();
         Verifier.verifyEquals(cb.count(1), 1);
         Verifier.verifyEquals(cb.count(2), 2);
         Verifier.verifyEquals(cb.count(3), 5);
         Verifier.verifyEquals(cb.count(4), 14);
-        Verifier.verifyEquals(cb.count(18), 204);
+        Verifier.verifyEquals(cb.count(18), 477638700);
+        Verifier.verifyEquals(cb.count(26), 2072914456);
     }
 
 }
