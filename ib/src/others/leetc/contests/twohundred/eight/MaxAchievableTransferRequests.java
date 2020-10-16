@@ -11,6 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Find cycles and eliminate cycles which use same edge. However only this doesn't work. We need to choose longest cycle.
+ * So came up with approach using Johnson's cycle finding algo but it gave out of memory. See {@link MaxAchievableTransferRequestsJohnsonCycles}
+ * Brute force approach worked. See {@link MaxAchievableTransferRequestsBrute}
+ */
 public class MaxAchievableTransferRequests {
 
     Map<Integer, List<Integer>> graph;

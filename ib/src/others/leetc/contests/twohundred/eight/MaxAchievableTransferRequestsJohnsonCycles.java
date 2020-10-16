@@ -18,7 +18,7 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 import java.util.stream.Collectors;
-
+//gave out of memory
 public class MaxAchievableTransferRequestsJohnsonCycles {
 
     static class Graph {
