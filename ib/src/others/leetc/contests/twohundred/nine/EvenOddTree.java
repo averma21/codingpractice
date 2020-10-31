@@ -1,6 +1,6 @@
 package others.leetc.contests.twohundred.nine;
 
-import trees.TreeNode;
+import others.leetc.trees.TreeNode;
 import util.Creator;
 import util.Verifier;
 

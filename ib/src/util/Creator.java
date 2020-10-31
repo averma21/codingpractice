@@ -1,6 +1,6 @@
 package util;
 
-import trees.TreeNode;
+import others.leetc.trees.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

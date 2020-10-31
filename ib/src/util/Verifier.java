@@ -1,6 +1,6 @@
 package util;
 
-import java.util.Arrays;
+import others.leetc.trees.TreeNode;
 import java.util.List;
 
 public class Verifier {
@@ -17,12 +17,12 @@ public class Verifier {
 
 
     public static void verifyEquals(double a, double b) {
-        if (a != b)
+        if (Double.compare(a,b) != 0)
             throw new RuntimeException("Unequal " + a + " " + b);
     }
 
     public static void verifyEquals(Object a, Object b) {
-        if (!a.equals(b)) {
+        if ( (a == null && b!= null) || (a != null && b == null) || (a!= null && !a.equals(b))) {
             throw new RuntimeException("Unequal " + a + " " + b);
         }
     }
@@ -58,6 +58,19 @@ public class Verifier {
         }
     }
 
+    public static void verifyArrayEquals(int [][] A, int [][] B) {
+        if (A.length != B.length)
+            throw new RuntimeException("Unequal lengths");
+        for (int i = 0; i < A.length; i++) {
+            try {
+                verifyEquals(A[i], B[i]);
+            } catch (RuntimeException e) {
+                System.out.println("Unequal element at index " + i);
+                throw e;
+            }
+        }
+    }
+
     public static void verifyEquals(ListNode A, ListNode B) {
         while (A != null && B != null){
             if (A.val == B.val) {
@@ -69,6 +82,35 @@ public class Verifier {
         }
         if (A != null || B != null)
             throw new RuntimeException("Unequal lengths");
+    }
+
+    public static void verifyEquals(TreeNode t1, TreeNode t2) {
+        if (t1 == null && t2 == null) {
+            return;
+        }
+        if (t1 == null || t2 == null) {
+            throw new RuntimeException("Un equal nodes. One is null");
+        }
+        if (t1.val != t2.val) {
+            throw new RuntimeException("Un equal nodes. t1=" + t1.val + ", t2=" + t2.val);
+        }
+        verifyEquals(t1.left, t2.left);
+        verifyEquals(t1.right, t2.right);
+    }
+
+    public static void verifyEqualsTrees(List<TreeNode> l1, List<TreeNode> l2) {
+        if (l1 == null && l2 == null) {
+            return;
+        }
+        if (l1 == null || l2 == null) {
+            throw new RuntimeException("Un equal nodes. One is null");
+        }
+        if (l1.size() != l2.size()) {
+            throw new RuntimeException("Size unequal");
+        }
+        for (int i = 0; i < l1.size(); i++) {
+            verifyEquals(l1.get(i), l2.get(i));
+        }
     }
 
 }
