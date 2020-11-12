@@ -1,9 +1,37 @@
 package util;
 
 import others.leetc.trees.TreeNode;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Verifier {
+
+    private static class IntArray {
+        int [] arr;
+
+        public IntArray(int [] arr) {
+            this.arr = arr;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            IntArray intArray = (IntArray) o;
+            return Arrays.equals(arr, intArray.arr);
+        }
+
+        @Override
+        public int hashCode() {
+            return Arrays.hashCode(arr);
+        }
+    }
 
     public static void verifyEquals(int a, int b) {
         if (a != b)
@@ -45,6 +73,12 @@ public class Verifier {
         }
     }
 
+    public static void verifyEqualsUnordered(List<Integer> A, List<Integer> B) {
+        Collections.sort(A);
+        Collections.sort(B);
+        verifyEquals(A, B);
+    }
+
     public static void verifyEquals(int [] A, int [] B) {
         if (A.length != B.length)
             throw new RuntimeException("Unequal lengths");
@@ -67,6 +101,32 @@ public class Verifier {
             } catch (RuntimeException e) {
                 System.out.println("Unequal element at index " + i);
                 throw e;
+            }
+        }
+    }
+
+    public static void verifyArrayEqualsUnordered(int [][] A, int [][] B) {
+        if (A.length != B.length)
+            throw new RuntimeException("Unequal lengths");
+        Map<IntArray, Integer> arrayFreqMapA = new HashMap<>();
+        Map<IntArray, Integer> arrayFreqMapB = new HashMap<>();
+        for (int [] arr1 : A) {
+            IntArray ob = new IntArray(arr1);
+            arrayFreqMapA.putIfAbsent(ob, 0);
+            arrayFreqMapA.computeIfPresent(ob, (k,v) -> v+1);
+        }
+        for (int [] arr1 : B) {
+            IntArray ob = new IntArray(arr1);
+            arrayFreqMapB.putIfAbsent(ob, 0);
+            arrayFreqMapB.computeIfPresent(ob, (k,v) -> v+1);
+        }
+        if (arrayFreqMapA.keySet().size() != arrayFreqMapB.keySet().size()) {
+            throw new RuntimeException("Unequal key set => unequal arrays");
+        }
+        for (Map.Entry<IntArray, Integer> entry : arrayFreqMapA.entrySet()) {
+            Integer c = arrayFreqMapB.get(entry.getKey());
+            if (c == null || c.intValue() != entry.getValue().intValue()) {
+                throw new RuntimeException("unequal arrays");
             }
         }
     }
