@@ -1,7 +1,4 @@
 package backtracking;
-
-import com.sun.org.apache.xerces.internal.xs.StringList;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;

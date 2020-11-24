@@ -1,7 +1,5 @@
 package trees;
 
-import jdk.nashorn.internal.objects.annotations.Where;
-
 public class NextRightPointers {
 
     private static class TreeLinkNode {
