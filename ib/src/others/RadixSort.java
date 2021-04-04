@@ -52,6 +52,7 @@ public class RadixSort {
     public static void main(String[] args) {
         RadixSort rs = new RadixSort();
         Verifier.verifyEquals(rs.sort(new int[] {38, 290, 28, 7, 29, 14}), new int[] {7, 14, 28, 29, 38, 290});
+        Verifier.verifyEquals(rs.sort(new int[] {2, 34, 100, 11, 15, 9}), new int[] {2, 9, 11, 15, 34, 100});
     }
 
 }

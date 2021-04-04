@@ -60,7 +60,7 @@ public class Verifier {
             throw new RuntimeException("Unequal " + a + " " + b);
     }
 
-    public static void verifyEquals(List<Integer> A, List<Integer> B) {
+    public static <T> void verifyEquals(List<T> A, List<T> B) {
         if (A == null && B == null)
             return;
         if (A == null || B == null) {
