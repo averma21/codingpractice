@@ -1,5 +1,10 @@
 package math;
 
+import util.Creator;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class HammingDistance {
 
     private long diff(final int [] a) {
@@ -12,13 +17,15 @@ public class HammingDistance {
         return 2L*oneCount*zeroCount;
     }
 
-    private int hammingDistance(final int[] A) {
+    public int hammingDistance(final List<Integer> A) {
         long sum = 0;
+        List<Integer> B = new ArrayList<>(A);
         for (int bit = 0; bit < 32; bit++) {
-            int a[] = new int[A.length];
-            for (int i = 0; i < A.length; i++) {
-                a[i] = A[i] & 1;
-                A[i] = A[i] >> 1;
+            int a[] = new int[B.size()];
+            for (int i = 0; i < B.size(); i++) {
+                int b = B.get(i);
+                a[i] = b & 1;
+                B.set(i, b >> 1);
             }
             sum = (sum + diff(a))% 1000000007 ;
         }
@@ -45,8 +52,8 @@ public class HammingDistance {
 
     public static void main(String[] args) {
         HammingDistance hammingDistance = new HammingDistance();
-        System.out.println(hammingDistance.hammingDistance(new int[] {2, 4, 6}));
-        System.out.println(hammingDistance.hammingDistance(new int[] {Integer.MAX_VALUE, Integer.MAX_VALUE - 1}));
+        System.out.println(hammingDistance.hammingDistance(Creator.getList(2, 4, 6)));
+        System.out.println(hammingDistance.hammingDistance(Creator.getList(Integer.MAX_VALUE, Integer.MAX_VALUE - 1)));
     }
 
 }
