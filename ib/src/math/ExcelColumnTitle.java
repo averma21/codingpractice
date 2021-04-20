@@ -28,6 +28,7 @@ public class ExcelColumnTitle {
     public static void main(String[] args) {
         ExcelColumnTitle excelColumnTitle = new ExcelColumnTitle();
         System.out.println(excelColumnTitle.convertToTitle(1));
+        System.out.println(excelColumnTitle.convertToTitle(52));
         System.out.println(excelColumnTitle.convertToTitle(943566));
         System.out.println(excelColumnTitle.convertToTitle(26));
         System.out.println(excelColumnTitle.convertToTitle(27));

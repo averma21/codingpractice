@@ -1,5 +1,6 @@
 package binarysearch;
 
+import util.Creator;
 import util.Verifier;
 
 import java.math.BigInteger;
@@ -47,9 +48,12 @@ public class AllocateBooks {
 
     public static void main(String[] args) {
         AllocateBooks books = new AllocateBooks();
-        Verifier.verifyEquals(books.books(Arrays.asList(new Integer[]{12, 34, 67, 90}), 2), 113);
-        Verifier.verifyEquals(books.books(Arrays.asList(new Integer[]{67, 34, 90, 12}), 2), 102);
-        Verifier.verifyEquals(books.books(Arrays.asList(new Integer[]{34, 14, 19, 75}), 12), -1);
+//        Verifier.verifyEquals(books.books(Arrays.asList(new Integer[]{12, 34, 67, 90}), 2), 113);
+//        Verifier.verifyEquals(books.books(Arrays.asList(new Integer[]{67, 34, 90, 12}), 2), 102);
+//        Verifier.verifyEquals(books.books(Arrays.asList(new Integer[]{34, 14, 19, 75}), 12), -1);
+//        Verifier.verifyEquals(books.books(Creator.getList( 97, 26, 12, 67, 10, 33, 79, 49, 79, 21, 67, 72, 93,
+//                36, 85, 45, 28, 91, 94, 57, 1, 53, 8, 44, 68, 90, 24 ), 26), 97);
+        Verifier.verifyEquals(books.books(Creator.getList(  31, 14, 19, 75 ), 12), -1);
     }
 
 }

@@ -25,23 +25,24 @@ public class RotatedSortedArraySearch {
         return rotationIndex;
     }
 
+    //not working
     // DO NOT MODIFY THE LIST
-    public int search(final List<Integer> a, int b) {
-        if (a == null || a.size() == 0)
+    public int search(final List<Integer> A, int B) {
+        if (A == null || A.size() == 0)
             return -1;
-        int rotationIndex = findRotationIndex(a);
-        int low = 0, high = a.size() - 1;
+        int rotationIndex = findRotationIndex(A);
+        int low = 0, high = A.size() - 1;
         if (rotationIndex != -1) {
-            int rotA = a.get(rotationIndex);
-            if (rotA == b)
+            int rotA = A.get(rotationIndex);
+            if (rotA == B)
                 return rotationIndex;
-            if (rotA < b) {
+            if (rotA < B) {
                 return -1;
             }
-            int aHigh = a.get(high);
-            if (aHigh == b) {
+            int aHigh = A.get(high);
+            if (aHigh == B) {
                 return high;
-            } else if (aHigh > b) {
+            } else if (aHigh > B) {
                 low = rotationIndex;
             } else {
                 high = rotationIndex;
@@ -49,13 +50,39 @@ public class RotatedSortedArraySearch {
         }
         while (low <= high) {
             int mid = (int)(((long)low + (long)high)/2);
-            int amid = a.get(mid);
-            if (amid == b)
+            int amid = A.get(mid);
+            if (amid == B)
                 return mid;
-            if (amid < b) {
+            if (amid < B) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    //works
+    public int search2(final List<Integer> A, int B) {
+        int i=0;
+        int j=A.size()-1;
+
+        while(i<=j) {
+            int mid = (i +j)/2;
+
+            if(A.get(mid)==B)
+                return mid;
+            if(A.get(mid)>=A.get(i)) {
+                if(B>=A.get(i)&&B<A.get(mid))
+                    j=mid-1;
+                else
+                    i=mid+1;
+            }
+            else {
+                if(B>A.get(mid)&&B<=A.get(j))
+                    i=mid+1;
+                else
+                    j=mid-1;
             }
         }
         return -1;
