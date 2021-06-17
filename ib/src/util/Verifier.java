@@ -51,7 +51,7 @@ public class Verifier {
 
     public static void verifyEquals(Object a, Object b) {
         if ( (a == null && b!= null) || (a != null && b == null) || (a!= null && !a.equals(b))) {
-            throw new RuntimeException("Unequal " + a + " " + b);
+            throw new RuntimeException("Unequal \"" + a + "\" \"" + b + "\"");
         }
     }
 

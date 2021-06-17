@@ -20,11 +20,10 @@ public class ThreeSumZero {
 
         @Override
         public boolean equals(Object o) {
-            if (o instanceof Triplets) {
-                Triplets o1 = (Triplets)o;
-                return o1.i == i && o1.j == j && o1.k == k;
-            }
-            return false;
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Triplets triplets = (Triplets) o;
+            return i == triplets.i && j == triplets.j && k == triplets.k;
         }
 
         @Override
@@ -44,7 +43,7 @@ public class ThreeSumZero {
             int cur = A.get(i);
             int j = i + 1, k = n-1;
             while (j < k) {
-                int s = A.get(j) + A.get(k);
+                long s = A.get(j) + (long)A.get(k);
                 if (s + cur == 0) {
                     triplets.add(new Triplets(cur, A.get(j), A.get(k)));
                     j++;
@@ -68,6 +67,10 @@ public class ThreeSumZero {
         System.out.println(ans);
         list = Arrays.asList(new Integer[]{ 1, -4, 0, 0, 5, -5, 1, 0, -2, 4, -4, 1, -1, -4, 3, 4, -1, -1, -3});
         ans = tsz.find(list);
+        System.out.println(ans);
+        list = Arrays.asList(new Integer[] { 2147483647, -2147483648, -2147483648, 0, 1 });
+        ans = tsz.find(list);
+        System.out.println(ans);
     }
 
 }

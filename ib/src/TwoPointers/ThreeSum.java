@@ -9,15 +9,15 @@ import java.util.List;
 public class ThreeSum {
 
     public static int func(List<Integer> A, int B) {
-        int ansSum = 0;
-        int diff = Integer.MAX_VALUE;
+        long ansSum = 0;
+        long diff = Long.MAX_VALUE;
         Collections.sort(A);
         for (int i = 0; i < A.size() - 2; i++) {
             int l = i+1, r = A.size() - 1;
             int cur = A.get(i);
             while (l < r) {
-                int sum = A.get(l) + A.get(r);
-                int currDiff = cur + sum > B ? cur + sum - B : B - cur - sum;
+                long sum = (long)A.get(l) + A.get(r);
+                long currDiff = cur + sum > B ? cur + sum - B : B - cur - sum;
                 if (currDiff <  diff) {
                     diff = currDiff;
                     ansSum = cur + sum;
@@ -29,7 +29,7 @@ public class ThreeSum {
                 else r--;
             }
         }
-        return ansSum;
+        return (int)ansSum;
     }
 
     public static void main(String[] args) {
@@ -40,6 +40,8 @@ public class ThreeSum {
         Verifier.verifyEquals(func(list, 7), 7);
         list = Arrays.asList(new Integer[]{-1, 2, 1, -4});
         Verifier.verifyEquals(func(list, 1), 2);
+        list = Arrays.asList(new Integer[]{2147483647, -2147483648, -2147483648, 0, 1 });
+        Verifier.verifyEquals(func(list, 0), 0);
     }
 
 }

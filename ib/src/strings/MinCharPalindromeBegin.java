@@ -1,10 +1,6 @@
 package strings;
 
-import util.PatternSearcher;
 import util.Verifier;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static util.PatternSearcher.kmpFailureFunc;
 

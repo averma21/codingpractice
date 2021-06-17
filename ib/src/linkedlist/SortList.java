@@ -1,6 +1,5 @@
 package linkedlist;
 
-import org.w3c.dom.NodeList;
 import util.Creator;
 import util.ListNode;
 import util.Verifier;
