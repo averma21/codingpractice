@@ -90,7 +90,7 @@ public class Sudoku {
         solve(A, 0, 0);
     }
 
-    private static List<Character> getChars(String s) {
+    public static List<Character> getChars(String s) {
         List<Character> cL = new ArrayList<>();
         for (int i = 0; i < s.length(); i++)
             cL.add(s.charAt(i));

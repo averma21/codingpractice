@@ -63,7 +63,7 @@ public class MaxPointsInSameLine {
         return ans;
     }
 
-    private static List<Integer> getList(String s, int startIndex) {
+    public static List<Integer> getList(String s, int startIndex) {
         String [] a = s.split(" ");
         List<Integer> l = new ArrayList<>();
         //System.out.println(a.length);
