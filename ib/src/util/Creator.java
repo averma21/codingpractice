@@ -1,6 +1,6 @@
 package util;
 
-import others.leetc.trees.TreeNode;
+import trees.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +32,10 @@ public class Creator {
         return head;
     }
 
-    public static TreeNode createTree(Integer [] arr) {
-        TreeNode [] nodes = new TreeNode[arr.length];
+    public static others.leetc.trees.TreeNode createTree(Integer [] arr) {
+        others.leetc.trees.TreeNode [] nodes = new others.leetc.trees.TreeNode[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            nodes[i] = arr[i] != null ? new TreeNode(arr[i]) : null;
+            nodes[i] = arr[i] != null ? new others.leetc.trees.TreeNode(arr[i]) : null;
             if (i > 0 && arr[i] != null) {
                 if (i % 2 == 0) {
                     int parentIndex = (i-2)/2;
@@ -51,6 +51,14 @@ public class Creator {
             }
         }
         return nodes[0];
+    }
+
+    public static TreeNode[] createTreeNodes(int count) {
+        TreeNode [] list = new TreeNode[count + 1];
+        for (int i = 1; i <= count; i++){
+            list[i] = new TreeNode(i);
+        }
+        return list;
     }
 
 }

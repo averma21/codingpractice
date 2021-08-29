@@ -2,6 +2,9 @@ package others.leetc.dp;
 
 //https://leetcode.com/problems/regular-expression-matching/
 
+import DP.round2.RegularExpressionII;
+import util.Verifier;
+
 /**
  * S="aab", P="c*a*b:
  * Matrix =
@@ -65,6 +68,18 @@ public class RegularExpressionMatching {
             }
         }
         return dp[m][n];
+    }
+
+    public static void main(String[] args) {
+        RegularExpressionMatching re2 = new RegularExpressionMatching();
+        Verifier.verifyEquals(re2.isMatch("aa", "a"), false);
+        Verifier.verifyEquals(re2.isMatch("aa", "aa"), true);
+        Verifier.verifyEquals(re2.isMatch("aaa", "aa"), false);
+        Verifier.verifyEquals(re2.isMatch("aa", "a*"), true);
+        Verifier.verifyEquals(re2.isMatch("aa", ".*"), true);
+        Verifier.verifyEquals(re2.isMatch("ab", ".*"), true);
+        Verifier.verifyEquals(re2.isMatch("aab", "c*a*b"), true);
+        Verifier.verifyEquals(re2.isMatch("baaaaaabaaaabaaaaababababbaab", "..a*aa*a.aba*a*bab*"), false);
     }
 
 }

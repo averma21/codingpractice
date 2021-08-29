@@ -1,5 +1,7 @@
 package DP;
 
+import util.Verifier;
+
 import java.util.Stack;
 
 public class LongestValidParenthesis {
@@ -7,7 +9,7 @@ public class LongestValidParenthesis {
     /**
      * O(n) time O(n) space. See {@link #lvp(String)} for O(1) space
      */
-    public int longestValidParentheses(String A) {
+    public static int longestValidParentheses(String A) {
         int maxans = 0;
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);
@@ -27,10 +29,10 @@ public class LongestValidParenthesis {
     }
 
     // O(1) space O(n) time
-    public int lvp(String s) {
+    public static int lvp(String A) {
         int left = 0, right = 0, maxlength = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '(') {
+        for (int i = 0; i < A.length(); i++) {
+            if (A.charAt(i) == '(') {
                 left++;
             } else {
                 right++;
@@ -42,8 +44,8 @@ public class LongestValidParenthesis {
             }
         }
         left = right = 0;
-        for (int i = s.length() - 1; i >= 0; i--) {
-            if (s.charAt(i) == '(') {
+        for (int i = A.length() - 1; i >= 0; i--) {
+            if (A.charAt(i) == '(') {
                 left++;
             } else {
                 right++;
@@ -55,5 +57,9 @@ public class LongestValidParenthesis {
             }
         }
         return maxlength;
+    }
+
+    public static void main(String[] args) {
+        Verifier.verifyEquals(longestValidParentheses("(())"), 4);
     }
 }
