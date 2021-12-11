@@ -92,6 +92,17 @@ public class Verifier {
         }
     }
 
+
+    public static void verifyEquals(boolean [] A, boolean [] B) {
+        if (A.length != B.length)
+            throw new RuntimeException("Unequal lengths");
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] != B[i]) {
+                throw new RuntimeException("Unequal elements at pos " + i);
+            }
+        }
+    }
+
     public static void verifyArrayEquals(int [][] A, int [][] B) {
         if (A.length != B.length)
             throw new RuntimeException("Unequal lengths");
